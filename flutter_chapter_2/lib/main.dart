@@ -12,6 +12,7 @@ void main() {
 }
 
 class GradientContainer extends StatelessWidget {
+  const GradientContainer({super.key});
   @override // đơn giản là thêm chức năng vào hàm build của StatelessWidget
   Widget build(context) {
     return Container(
