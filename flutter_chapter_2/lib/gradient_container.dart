@@ -1,7 +1,7 @@
 import "package:flutter/material.dart";
 import "package:flutter_chapter_2/text_container.dart";
 
-const  startAlignment = Alignment.topLeft;
+const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
@@ -15,7 +15,7 @@ class GradientContainer extends StatelessWidget {
             begin: startAlignment,
             end: endAlignment),
       ),
-      child: const Center(child: TextContainer()),
+      child: Center(child: TextContainer("Hello World!!")),
     );
   }
 }
