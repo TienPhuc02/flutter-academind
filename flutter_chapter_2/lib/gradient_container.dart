@@ -5,15 +5,15 @@ const startAlignment = Alignment.topLeft;
 const endAlignment = Alignment.bottomRight;
 
 class GradientContainer extends StatelessWidget {
-  const GradientContainer({Key? key}) : super(key: key);
+  const GradientContainer({Key? key, required this.arrayColors})
+      : super(key: key);
+  final List<Color> arrayColors;
   @override // đơn giản là thêm chức năng vào hàm build của StatelessWidget
   Widget build(context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-            colors: [Colors.blue, Colors.green],
-            begin: startAlignment,
-            end: endAlignment),
+            colors: arrayColors, begin: startAlignment, end: endAlignment),
       ),
       child: Center(child: TextContainer("Hello World!!")),
     );
