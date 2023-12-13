@@ -3,11 +3,10 @@ import "package:flutter_chapter_2/gradient_container.dart";
 
 void main() {
   runApp(
-    const MaterialApp(
+    MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.blue,
-        body: GradientContainer(
-            arrayColors: [Colors.blue, Colors.green]), //widget -> layout
+        body: GradientContainer.greenBlue(), //widget -> layout
       ), //scaffold class,
     ),
   );
