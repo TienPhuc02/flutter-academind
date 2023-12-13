@@ -8,8 +8,9 @@ void main() {
         body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [Colors.blue, Colors.blueAccent],
-            ),
+                colors: [Colors.blue, Colors.green],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight),
           ),
           child: const Center(
             child: Text("hello World"),
