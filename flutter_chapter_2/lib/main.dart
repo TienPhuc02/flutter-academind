@@ -6,10 +6,12 @@ void main() {
       home: Scaffold(
         backgroundColor: Colors.blue,
         body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: colors)
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.blue, Colors.blueAccent],
+            ),
           ),
-          child: Center(
+          child: const Center(
             child: Text("hello World"),
           ),
         ), //widget -> layout
