@@ -13,7 +13,10 @@ void main() {
                 end: Alignment.bottomRight),
           ),
           child: const Center(
-            child: Text("hello World"),
+            child: Text(
+              "Hello World!!",
+              style: TextStyle(color: Colors.white, fontSize: 28),
+            ),
           ),
         ), //widget -> layout
       ), //scaffold class,
