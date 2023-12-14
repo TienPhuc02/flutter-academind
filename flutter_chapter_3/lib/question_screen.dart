@@ -17,35 +17,39 @@ class _QuestionScreenState extends State<QuestionScreen> {
     final currentQuestion = question[0];
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        // crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              currentQuestion.text,
-              style: const TextStyle(color: Colors.white, fontSize: 15),
+      child: Container(
+        margin: EdgeInsets.all(30),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Text(
+                currentQuestion.text,
+                style: const TextStyle(color: Colors.white, fontSize: 15),
+                textAlign: TextAlign.center,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          ...currentQuestion.answers.map((item) {
-            return AnswerButton(answersText: item, handleClickAnswer: () {});
-          }),
-          // AnswerButton(
-          //     answersText: currentQuestion.answers[0],
-          //     handleClickAnswer: () {}),
-          // AnswerButton(
-          //     answersText: currentQuestion.answers[1],
-          //     handleClickAnswer: () {}),
-          // AnswerButton(
-          //     answersText: currentQuestion.answers[2],
-          //     handleClickAnswer: () {}),
-          // AnswerButton(
-          //     answersText: currentQuestion.answers[3],
-          //     handleClickAnswer: () {}),
-        ],
+            const SizedBox(
+              height: 30,
+            ),
+            ...currentQuestion.answers.map((item) {
+              return AnswerButton(answersText: item, handleClickAnswer: () {});
+            }),
+            // AnswerButton(
+            //     answersText: currentQuestion.answers[0],
+            //     handleClickAnswer: () {}),
+            // AnswerButton(
+            //     answersText: currentQuestion.answers[1],
+            //     handleClickAnswer: () {}),
+            // AnswerButton(
+            //     answersText: currentQuestion.answers[2],
+            //     handleClickAnswer: () {}),
+            // AnswerButton(
+            //     answersText: currentQuestion.answers[3],
+            //     handleClickAnswer: () {}),
+          ],
+        ),
       ),
     );
   }
