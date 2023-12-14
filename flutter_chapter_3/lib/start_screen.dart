@@ -7,48 +7,43 @@ class StartScreen extends StatelessWidget {
   final void Function() handleClickStartQuiz;
   @override
   Widget build(context) {
-    return Column(
-      // crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        const SizedBox(
-          height: 100,
-        ),
-        Image.asset(
-          "assets/images/quiz-logo.png",
-          width: 300.0,
-          color: Color.fromARGB(174, 255, 255, 255),
-        ),
-        // Opacity(
-        //   opacity: 0.4,
-        //   child: Image.asset(
-        //     "assets/images/quiz-logo.png",
-        //     width: 250.0,
-        //   ),
-        // ),
-        const SizedBox(
-          height: 50,
-        ),
-        Center(
-          child: TextClass(
-            text: "Learn Flutter the fun Way!",
-            styleText: TextStyle(color: Colors.white, fontSize: 25),
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(
+            height: 100,
           ),
-        ),
-        const SizedBox(
-          height: 50,
-        ),
-        TextButton.icon(
-          onPressed: handleClickStartQuiz,
-          style: TextButton.styleFrom(
-            foregroundColor: Colors.white,
-            textStyle: const TextStyle(fontSize: 20),
+          Image.asset(
+            "assets/images/quiz-logo.png",
+            width: 300.0,
+            color: Color.fromARGB(174, 255, 255, 255),
           ),
-          icon: const Icon(Icons.arrow_right_alt),
-          label: TextClass(
-            text: "Start Quizz",
+          const SizedBox(
+            height: 50,
           ),
-        )
-      ],
+          Center(
+            child: TextClass(
+              text: "Learn Flutter the fun Way!",
+              styleText: TextStyle(color: Colors.white, fontSize: 25),
+            ),
+          ),
+          const SizedBox(
+            height: 50,
+          ),
+          TextButton.icon(
+            onPressed: handleClickStartQuiz,
+            style: TextButton.styleFrom(
+              foregroundColor: Colors.white,
+              textStyle: const TextStyle(fontSize: 20),
+            ),
+            icon: const Icon(Icons.arrow_right_alt),
+            label: TextClass(
+              text: "Start Quizz",
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -33,12 +33,9 @@ class _QuizClassState extends State<QuizClass> {
     if (activeScreen == "question-screen") {
       screenWidget = const QuestionScreen();
     }
-    // final screenWidget = activeScreen == "question-screen"
-    //     ? StartScreen(handleClickStartQuiz)
-    //     : const QuestionScreen();
+ 
     return Container(
-      // constraints: const BoxConstraints
-      //     .expand(), // Mở rộng Container để fill toàn bộ không gian của body
+   
       decoration: const BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topLeft,
