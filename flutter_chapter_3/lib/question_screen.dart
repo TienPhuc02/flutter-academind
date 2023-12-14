@@ -1,6 +1,7 @@
 //ca 2 deu là statesulwidget
 import 'package:flutter/material.dart';
 import "package:flutter_chapter_3/answers_button.dart";
+import "package:flutter_chapter_3/data/questions.dart";
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({Key? key}) : super(key: key);
@@ -12,24 +13,35 @@ class QuestionScreen extends StatefulWidget {
 
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
+    final currentQuestion = question[0];
     return SizedBox(
       width: double.infinity,
       child: Column(
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text(
-            "Data Question....",
-            style: TextStyle(color: Colors.white, fontSize: 25),
+          Center(
+            child: Text(
+              currentQuestion.text,
+              style: const TextStyle(color: Colors.white, fontSize: 15),
+            ),
           ),
           const SizedBox(
             height: 30,
           ),
-          AnswerButton(answersText: "Answer1", handleClickAnswer: () {}),
-          AnswerButton(answersText: "Answer2", handleClickAnswer: () {}),
-          AnswerButton(answersText: "Answer3", handleClickAnswer: () {}),
-          AnswerButton(answersText: "Answer4", handleClickAnswer: () {}),
+          AnswerButton(
+              answersText: currentQuestion.answers[0],
+              handleClickAnswer: () {}),
+          AnswerButton(
+              answersText: currentQuestion.answers[1],
+              handleClickAnswer: () {}),
+          AnswerButton(
+              answersText: currentQuestion.answers[2],
+              handleClickAnswer: () {}),
+          AnswerButton(
+              answersText: currentQuestion.answers[3],
+              handleClickAnswer: () {}),
         ],
       ),
     );
