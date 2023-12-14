@@ -22,15 +22,15 @@ class _QuestionScreenState extends State<QuestionScreen> {
     // currentQuestionIndex += 1;
     setState(() {
       currentQuestionIndex++;
-      if (currentQuestionIndex >= 10) {
-        currentQuestionIndex = 0;
-      }
+      // if (currentQuestionIndex >= 10) {
+      //   currentQuestionIndex = 0;
+      // }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = question[currentQuestionIndex];
+    final currentQuestion = questions[currentQuestionIndex];
     return SizedBox(
       width: double.infinity,
       child: Container(

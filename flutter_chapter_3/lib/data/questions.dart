@@ -1,6 +1,6 @@
 import 'package:flutter_chapter_3/models/quiz_question.dart';
 
-const question = [
+const questions = [
   QuizQuestion("Quả nào trong số này không phải là loại quả hạch?",
       ["Dâu tây", "Dưa hấu", "Cà chua", "Chuối"]),
   QuizQuestion("Đâu là quốc gia lớn nhất thế giới về diện tích đất?",
