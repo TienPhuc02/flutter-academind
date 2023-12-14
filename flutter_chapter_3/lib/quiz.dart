@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/question_screen.dart';
+
 import 'package:flutter_chapter_3/start_screen.dart';
-import "package:flutter_chapter_3/text_class.dart";
 
 class QuizClass extends StatefulWidget {
   const QuizClass({Key? key}) : super(key: key);
@@ -12,17 +12,18 @@ class QuizClass extends StatefulWidget {
 }
 
 class _QuizClassState extends State<QuizClass> {
-  late Widget? activeScreen;
-  @override
-  void initState() {
-    super.initState();
-    activeScreen = StartScreen(
-        handleClickStartQuiz); // Initialize activeScreen in initState
-  }
+  // late Widget? activeScreen;
+  var activeScreen = "start-screen";
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   activeScreen = StartScreen(
+  //       handleClickStartQuiz); // Initialize activeScreen in initState
+  // }
 
   void handleClickStartQuiz() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = "start-screen";
     });
     print("hello world");
   }
@@ -41,7 +42,9 @@ class _QuizClassState extends State<QuizClass> {
               Color.fromARGB(255, 201, 86, 221)
             ]),
       ),
-      child: activeScreen,
+      child: activeScreen == "start-screen"
+          ? StartScreen(handleClickStartQuiz)
+          : const QuestionScreen(),
     );
   }
 }
