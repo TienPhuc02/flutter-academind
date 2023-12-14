@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/text_class.dart';
 
-void handleClickStartQuiz() {
-  print("hello world");
-}
-
 class StartScreen extends StatelessWidget {
-  const StartScreen({Key? key}) : super(key: key);
+  const StartScreen(this.handleClickStartQuiz, {Key? key}) : super(key: key);
+
+  final void Function() handleClickStartQuiz;
   @override
   Widget build(context) {
     return Column(
