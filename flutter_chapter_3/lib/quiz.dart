@@ -13,7 +13,7 @@ class QuizClass extends StatefulWidget {
 
 class _QuizClassState extends State<QuizClass> {
   // late Widget? activeScreen;
-  var activeScreen = "start-screen";
+  String activeScreen = "start-screen";
   // @override
   // void initState() {
   //   super.initState();
@@ -23,13 +23,19 @@ class _QuizClassState extends State<QuizClass> {
 
   void handleClickStartQuiz() {
     setState(() {
-      activeScreen = "start-screen";
+      activeScreen = "question-screen";
     });
-    print("hello world");
   }
 
   @override
   Widget build(context) {
+    Widget screenWidget = StartScreen(handleClickStartQuiz);
+    if (activeScreen == "question-screen") {
+      screenWidget = const QuestionScreen();
+    }
+    // final screenWidget = activeScreen == "question-screen"
+    //     ? StartScreen(handleClickStartQuiz)
+    //     : const QuestionScreen();
     return Container(
       // constraints: const BoxConstraints
       //     .expand(), // Mở rộng Container để fill toàn bộ không gian của body
@@ -42,9 +48,7 @@ class _QuizClassState extends State<QuizClass> {
               Color.fromARGB(255, 201, 86, 221)
             ]),
       ),
-      child: activeScreen == "start-screen"
-          ? StartScreen(handleClickStartQuiz)
-          : const QuestionScreen(),
+      child: screenWidget,
     );
   }
 }
