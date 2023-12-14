@@ -41,13 +41,14 @@ class StartScreen extends StatelessWidget {
             const SizedBox(
               height: 50,
             ),
-            TextButton(
+            TextButton.icon(
               onPressed: handleClickStartQuiz,
               style: TextButton.styleFrom(
                 foregroundColor: Colors.white,
                 textStyle: const TextStyle(fontSize: 20),
               ),
-              child: TextClass(
+              icon: const Icon(Icons.arrow_right_alt),
+              label: TextClass(
                 text: "Start Quizz",
               ),
             )
