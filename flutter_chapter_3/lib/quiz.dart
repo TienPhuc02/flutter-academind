@@ -12,26 +12,23 @@ class QuizClass extends StatefulWidget {
 }
 
 class _QuizClassState extends State<QuizClass> {
-  // late Widget? activeScreen;
+  final List<String> selectedAnswers = [];
   String activeScreen = "start-screen";
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   activeScreen = StartScreen(
-  //       handleClickStartQuiz); // Initialize activeScreen in initState
-  // }
-
   void handleClickStartQuiz() {
     setState(() {
       activeScreen = "question-screen";
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(handleClickStartQuiz);
     if (activeScreen == "question-screen") {
-      screenWidget = const QuestionScreen();
+      screenWidget = QuestionScreen(onSelectAnswer: chooseAnswer);
     }
 
     return Container(
