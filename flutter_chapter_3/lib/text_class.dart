@@ -5,7 +5,7 @@ class TextClass extends StatelessWidget {
   String text;
   TextStyle? styleText;
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     return Text(
       text,
       style: styleText,

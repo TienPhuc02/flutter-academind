@@ -28,14 +28,13 @@ class _QuizClassState extends State<QuizClass> {
   }
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     Widget screenWidget = StartScreen(handleClickStartQuiz);
     if (activeScreen == "question-screen") {
       screenWidget = const QuestionScreen();
     }
- 
+
     return Container(
-   
       decoration: const BoxDecoration(
         gradient: LinearGradient(
             begin: Alignment.topLeft,

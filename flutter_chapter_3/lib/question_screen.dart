@@ -1,5 +1,6 @@
 //ca 2 deu là statesulwidget
 import 'package:flutter/material.dart';
+import "package:flutter_chapter_3/answers_button.dart";
 
 class QuestionScreen extends StatefulWidget {
   const QuestionScreen({Key? key}) : super(key: key);
@@ -18,14 +19,17 @@ class _QuestionScreenState extends State<QuestionScreen> {
         // crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("hello world"),
+          const Text(
+            "Data Question....",
+            style: TextStyle(color: Colors.white, fontSize: 25),
+          ),
           const SizedBox(
             height: 30,
           ),
-          ElevatedButton(onPressed: () {}, child: const Text("Answers1")),
-          ElevatedButton(onPressed: () {}, child: const Text("Answers2")),
-          ElevatedButton(onPressed: () {}, child: const Text("Answers3")),
-          ElevatedButton(onPressed: () {}, child: const Text("Answers4")),
+          AnswerButton(answersText: "Answer1", handleClickAnswer: () {}),
+          AnswerButton(answersText: "Answer2", handleClickAnswer: () {}),
+          AnswerButton(answersText: "Answer3", handleClickAnswer: () {}),
+          AnswerButton(answersText: "Answer4", handleClickAnswer: () {}),
         ],
       ),
     );
