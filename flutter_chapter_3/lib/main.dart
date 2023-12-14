@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_chapter_3/start_screen.dart';
+import 'package:flutter_chapter_3/quiz.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.purple,
         ),
-        body: const StartScreen(),
+        body: const QuizClass(),
       ),
     );
   }
