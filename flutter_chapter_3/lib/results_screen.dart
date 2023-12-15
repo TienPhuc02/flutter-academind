@@ -12,14 +12,13 @@ class ResultsScreen extends StatelessWidget {
       : super(key: key);
   final void Function() clickBackStartScreen;
   List<String> chosenAnswers;
-
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
     for (int i = 0; i < questions.length; i++) {
       summary.add({
         "question_index": i,
         "question": questions[i].text,
-        "question_correct": questions[i].answers[0],
+        "question_correct": questions[i].answer_correct,
         "user_answer": chosenAnswers[i]
       });
     }
@@ -28,6 +27,7 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(chosenAnswers);
     final summaryData = getSummaryData();
     final numTotalQuestion = questions.length;
     print(numTotalQuestion);
@@ -42,12 +42,11 @@ class ResultsScreen extends StatelessWidget {
           Text(
             "Bạn đã trả lời đúng $numCorrectQuestion câu trong tổng $numTotalQuestion câu",
             style: GoogleFonts.lato(
-                color: Color.fromARGB(255, 232, 147, 242),
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-                ),
+              color: Color.fromARGB(255, 232, 147, 242),
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+            ),
             textAlign: TextAlign.center,
-            
           ),
           const SizedBox(
             height: 40,
