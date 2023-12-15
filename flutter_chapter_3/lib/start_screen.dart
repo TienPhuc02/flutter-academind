@@ -3,11 +3,13 @@ import 'package:flutter_chapter_3/text_class.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.handleClickStartQuiz, {Key? key}) : super(key: key);
-
+  StartScreen(this.selectedAnswers, this.handleClickStartQuiz, {Key? key})
+      : super(key: key);
+  List<String> selectedAnswers;
   final void Function() handleClickStartQuiz;
   @override
   Widget build(BuildContext context) {
+    print(selectedAnswers);
     return Center(
       child: Column(
         mainAxisSize: MainAxisSize.min,
