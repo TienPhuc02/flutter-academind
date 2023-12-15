@@ -12,7 +12,7 @@ class ResultsScreen extends StatelessWidget {
       : super(key: key);
   final void Function() clickBackStartScreen;
   List<String> chosenAnswers;
-  List<Map<String, Object>> getSummaryData() {
+  List<Map<String, Object>> get summaryData {
     final List<Map<String, Object>> summary = [];
     for (int i = 0; i < questions.length; i++) {
       summary.add({
@@ -36,11 +36,11 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final summaryData = getSummaryData();
+    // final summaryData = getSummaryData();
     final numTotalQuestion = questions.length;
-    final numCorrectQuestion = summaryData.where((data) {
-      return data["user_answer"] == data["question_correct"];
-    }).length;
+    final numCorrectQuestion = summaryData
+        .where((data) => data["user_answer"] == data["question_correct"])
+        .length;
     final compareData = getComapareResults();
     return SizedBox(
       width: double.infinity,
