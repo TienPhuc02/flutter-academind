@@ -1,7 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/data/questions.dart';
-import "package:flutter_chapter_3/question_summary.dart";
+import 'package:flutter_chapter_3/question_summary/question_summary.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
   ResultsScreen(
@@ -39,11 +40,15 @@ class ResultsScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-              "Bạn đã trả lời đúng $numCorrectQuestion câu trong tổng $numTotalQuestion câu",
-              style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.normal)),
+            "Bạn đã trả lời đúng $numCorrectQuestion câu trong tổng $numTotalQuestion câu",
+            style: GoogleFonts.lato(
+                color: Color.fromARGB(255, 232, 147, 242),
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                ),
+            textAlign: TextAlign.center,
+            
+          ),
           const SizedBox(
             height: 40,
           ),
