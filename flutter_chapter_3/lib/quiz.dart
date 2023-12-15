@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/data/questions.dart';
 import 'package:flutter_chapter_3/question_screen.dart';
+import 'package:flutter_chapter_3/results_screen.dart';
 import 'package:flutter_chapter_3/start_screen.dart';
 
 class QuizClass extends StatefulWidget {
@@ -12,7 +13,7 @@ class QuizClass extends StatefulWidget {
 }
 
 class _QuizClassState extends State<QuizClass> {
-  final List<String> selectedAnswers = [];
+  List<String> selectedAnswers = [];
   String activeScreen = "start-screen";
   void handleClickStartQuiz() {
     setState(() {
@@ -25,9 +26,16 @@ class _QuizClassState extends State<QuizClass> {
 
     if (selectedAnswers.length == questions.length) {
       setState(() {
-        activeScreen = "start-screen";
+        selectedAnswers = [];
+        activeScreen = "results-screen";
       });
     }
+  }
+
+  void handleClickRestartQuiz() {
+    setState(() {
+      activeScreen = "start-screen";
+    });
   }
 
   @override
@@ -37,6 +45,9 @@ class _QuizClassState extends State<QuizClass> {
     Widget screenWidget = StartScreen(handleClickStartQuiz);
     if (activeScreen == "question-screen") {
       screenWidget = QuestionScreen(onSelectAnswer: chooseAnswer);
+    } else if (activeScreen == "results-screen") {
+      screenWidget =
+          ResultsScreen(clickBackStartScreen: handleClickRestartQuiz);
     }
 
     return Container(
