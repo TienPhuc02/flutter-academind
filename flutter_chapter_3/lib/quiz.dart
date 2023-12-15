@@ -46,8 +46,9 @@ class _QuizClassState extends State<QuizClass> {
     if (activeScreen == "question-screen") {
       screenWidget = QuestionScreen(onSelectAnswer: chooseAnswer);
     } else if (activeScreen == "results-screen") {
-      screenWidget =
-          ResultsScreen(clickBackStartScreen: handleClickRestartQuiz);
+      screenWidget = ResultsScreen(
+          clickBackStartScreen: handleClickRestartQuiz,
+          chosenAnswers: selectedAnswers);
     }
 
     return Container(

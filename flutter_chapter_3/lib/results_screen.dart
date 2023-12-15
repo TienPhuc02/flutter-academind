@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({Key? key, required this.clickBackStartScreen})
+  ResultsScreen(
+      {Key? key,
+      required this.clickBackStartScreen,
+      required this.chosenAnswers})
       : super(key: key);
   final void Function() clickBackStartScreen;
+  List<String> chosenAnswers;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
