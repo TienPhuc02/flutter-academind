@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/data/questions.dart';
 import "package:flutter_chapter_3/question_summary.dart";
@@ -15,7 +16,7 @@ class ResultsScreen extends StatelessWidget {
     final List<Map<String, Object>> summary = [];
     for (int i = 0; i < questions.length; i++) {
       summary.add({
-        "question_index": 1,
+        "question_index": i,
         "question": questions[i].text,
         "question_correct": questions[i].answers[0],
         "user_answer": chosenAnswers[i]
@@ -26,20 +27,27 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestion = questions.length;
+    print(numTotalQuestion);
+    final numCorrectQuestion = summaryData.where((data) {
+      return data["user_answer"] == data["question_correct"];
+    }).length;
     return SizedBox(
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("Bạn đã trả lời đúng X câu trong tổng Y câu",
-              style: TextStyle(
+          Text(
+              "Bạn đã trả lời đúng $numCorrectQuestion câu trong tổng $numTotalQuestion câu",
+              style: const TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.normal)),
           const SizedBox(
             height: 40,
           ),
-          QuestionsSummary(summaryData: getSummaryData()),
+          QuestionsSummary(summaryData: summaryData),
           const SizedBox(
             height: 40,
           ),
