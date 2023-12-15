@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_3/data/questions.dart';
+import "package:flutter_chapter_3/question_summary.dart";
 
 class ResultsScreen extends StatelessWidget {
   ResultsScreen(
@@ -38,10 +39,7 @@ class ResultsScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const Text(
-            "List Of Answer and Question....",
-            style: TextStyle(color: Colors.white),
-          ),
+          QuestionsSummary(summaryData: getSummaryData()),
           const SizedBox(
             height: 40,
           ),
@@ -50,7 +48,7 @@ class ResultsScreen extends StatelessWidget {
               style: TextButton.styleFrom(
                   foregroundColor: Colors.white,
                   textStyle: const TextStyle(fontSize: 15)),
-              onPressed: () {},
+              onPressed: clickBackStartScreen,
               label: const Text("Restart Quiz"))
         ],
       ),
