@@ -25,15 +25,23 @@ class ResultsScreen extends StatelessWidget {
     return summary;
   }
 
+  List<bool> getComapareResults() {
+    final List<bool> arrayResultsCompareAnswer = [];
+    for (int i = 0; i < questions.length; i++) {
+      bool isCorrect = chosenAnswers[i] == questions[i].answer_correct;
+      arrayResultsCompareAnswer.add(isCorrect);
+    }
+    return arrayResultsCompareAnswer;
+  }
+
   @override
   Widget build(BuildContext context) {
-    print(chosenAnswers);
     final summaryData = getSummaryData();
     final numTotalQuestion = questions.length;
-    print(numTotalQuestion);
     final numCorrectQuestion = summaryData.where((data) {
       return data["user_answer"] == data["question_correct"];
     }).length;
+    final compareData = getComapareResults();
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -51,7 +59,7 @@ class ResultsScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          QuestionsSummary(summaryData: summaryData),
+          QuestionsSummary(summaryData: summaryData, compareData: compareData),
           const SizedBox(
             height: 40,
           ),

@@ -9,7 +9,7 @@ const questions = [
       'Ai là người đã lãnh đạo cách mạng dân chủ ở Ấn Độ và được biết đến với danh hiệu "Bố của Quốc dân"?',
       [
         "Mahatma Gandhi",
-        " Jawaharlal Nehru",
+        "Jawaharlal Nehru",
         "Subhas Chandra Bose",
         "Bhagat Singh"
       ],
@@ -23,17 +23,17 @@ const questions = [
       ["Forrest Gump", "The Shawshank Redemption", "Pulp Fiction", "Titanic"],
       "Forrest Gump"),
   QuizQuestion('Ban nhạc nào được biết đến với ca khúc "Stairway to Heaven"?',
-      ["The Beatles", "Led Zeppelin", " Pink Floyd", " Queen"], "Led Zeppelin"),
+      ["The Beatles", "Led Zeppelin", "Pink Floyd", "Queen"], "Led Zeppelin"),
   QuizQuestion(
       "Ai là cầu thủ đã giành giải Quả Bóng Vàng 2020?",
-      ["Cristiano Ronaldo", " Lionel Messi", "Kylian Mbappé", "Neymar Jr."],
+      ["Cristiano Ronaldo", "Lionel Messi", "Kylian Mbappé", "Neymar Jr."],
       "Lionel Messi"),
   QuizQuestion(" Công ty nào đã phát triển hệ điều hành iOS?",
-      ["Microsoft", " Google", " Apple", " IBM"], "Apple"),
+      ["Microsoft", " Google", "Apple", " IBM"], "Apple"),
   QuizQuestion(" Hành tinh nào là hành tinh lớn nhất trong hệ Mặt Trời?",
-      ["Mặt Trăng", " Sao Hỏa", " Sao Mộc", " Sao Mộc"], "Sao Mộc"),
+      ["Mặt Trăng", "Sao Hỏa", "Sao Mộc", "Mặt Trời"], "Sao Mộc"),
   QuizQuestion(
       'Ai là tác giả của cuốn tiểu thuyết "Người Lái Đò"?"',
-      ["Ernest Hemingway", " Mark Twain", " Herman Melville", " Joseph Conrad"],
+      ["Ernest Hemingway", "Mark Twain", " Herman Melville", "Joseph Conrad"],
       "Mark Twain"),
 ];

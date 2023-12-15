@@ -23,8 +23,7 @@ class _QuizClassState extends State<QuizClass> {
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
-    print(selectedAnswers.length);
-    print(questions.length);
+  
     if (selectedAnswers.length == questions.length) {
       setState(() {
         activeScreen = "results-screen";
@@ -41,8 +40,7 @@ class _QuizClassState extends State<QuizClass> {
 
   @override
   Widget build(BuildContext context) {
-    print(selectedAnswers.length);
-    print(questions.length);
+
     Widget screenWidget = StartScreen(selectedAnswers, handleClickStartQuiz);
     if (activeScreen == "question-screen") {
       screenWidget = QuestionScreen(onSelectAnswer: chooseAnswer);
