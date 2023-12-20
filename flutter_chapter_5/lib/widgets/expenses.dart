@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chapter_5/widgets/expeses_list/expenses_list.dart';
 import 'package:flutter_chapter_5/models/expense.dart';
+import 'package:flutter_chapter_5/widgets/new_expense.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _ExpenState extends State<Expenses> {
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
       context: context,
-      builder: (ctx) => const Text("Model bottom sheet"),
+      builder: (ctx) =>const NewExpense(),
     );
   }
 
