@@ -42,9 +42,9 @@ class _NewExpenseState extends State<NewExpense> {
       showDialog(
         context: context,
         builder: (ctx) => AlertDialog(
-          title: const Text("Invalid input"),
+          title: const Text("Đầu vao không hợp lệ"),
           content: const Text(
-              "PLase make sure a valid title, amount,date, and category was entered"),
+              "Vui lòng đảm bảo rằng bạn đã nhập tiêu đề, số tiền, ngày và danh mục hợp lệ"),
           actions: [
             TextButton(
               onPressed: () {

@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter_chapter_5/models/expense.dart";
+import 'package:intl/intl.dart';
 
 class ExpenseItem extends StatelessWidget {
   const ExpenseItem({Key? key, required this.expense}) : super(key: key);
@@ -17,7 +18,9 @@ class ExpenseItem extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('\đ ${expense.amount.toStringAsFixed(3)}'),
+                // Text('\đ ${expense.amount.toStringAsFixed(3)}'),
+                Text(
+                    '\đ ${NumberFormat("#,##0.###", "en_US").format(expense.amount)}'),
                 const Spacer(),
                 Row(
                   children: [
