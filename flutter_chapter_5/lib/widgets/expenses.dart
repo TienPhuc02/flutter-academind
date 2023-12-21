@@ -47,11 +47,39 @@ class _ExpenState extends State<Expenses> {
     });
   }
 
+  void _removeExpense(Expense expense) {
+    final expenseIndex = _registeredExpenses.indexOf(expense);
+    setState(() {
+      _registeredExpenses.remove(expense);
+    });
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        duration: const Duration(seconds: 5),
+        content: const Text("Chi Phí Đã Được Xóa"),
+        action: SnackBarAction(
+            label: "Hoàn Tác",
+            onPressed: () {
+              setState(() {
+                _registeredExpenses.insert(expenseIndex, expense);
+              });
+            }),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text("Hiện tại không có thông tin nào.Bắt đầu thêm thông tin"),
+    );
+    if (_registeredExpenses.isNotEmpty) {
+      mainContent = ExpensesList(
+          expenses: _registeredExpenses, onRemoveExpense: _removeExpense);
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Flutter ExpenseTracker"),
+        title: const Text("Trình theo dõi chi phí Flutter"),
         actions: [
           IconButton(
             onPressed: _openAddExpenseOverlay,
@@ -61,8 +89,10 @@ class _ExpenState extends State<Expenses> {
       ),
       body: Column(
         children: [
-          const Text("My App"),
-          Expanded(child: ExpensesList(expenses: _registeredExpenses))
+          const Text("Ứng Dụng của tôi"),
+          Expanded(
+            child: mainContent,
+          )
         ],
       ),
     );
