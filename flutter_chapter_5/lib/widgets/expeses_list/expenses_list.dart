@@ -19,6 +19,7 @@ class ExpensesList extends StatelessWidget {
         onDismissed: (direction) {
           onRemoveExpense(expenses[index]);
         },
+        //direction có thể giúp bạn xác định hướng mà người dùng đã vuốt để xóa ExpenseItem. Bạn có thể sử dụng thông tin này để thực hiện các hành động khác tùy thuộc vào hướng vuốt.
         child: ExpenseItem(
           expense: expenses[index],
         ),
