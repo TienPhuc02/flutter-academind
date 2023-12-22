@@ -5,6 +5,10 @@ void main() {
   runApp(const MyApp());
 }
 
+var kColorScheme = ColorScheme.fromSeed(
+  seedColor: const Color.fromARGB(255, 96, 59, 181),
+);
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -12,7 +16,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         theme: ThemeData().copyWith(
-            scaffoldBackgroundColor: Color.fromARGB(255, 91, 74, 138)),
+          // scaffoldBackgroundColor: Color.fromARGB(255, 91, 74, 138),
+          colorScheme: kColorScheme,
+          appBarTheme: const AppBarTheme().copyWith(
+            backgroundColor: kColorScheme.onPrimaryContainer,
+            foregroundColor: kColorScheme.primaryContainer,
+          ),
+        ),
         home: const Expenses());
   }
 }
