@@ -11,16 +11,19 @@ class ExpenseItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(expense.title),
+            Text(
+              expense.title,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             const SizedBox(
               height: 4,
             ),
             Row(
               children: [
-                // Text('\đ ${expense.amount.toStringAsFixed(3)}'),
                 Text(
-                    '\đ ${NumberFormat("#,##0.###", "en_US").format(expense.amount)}'),
+                    '\đ ${NumberFormat("#,###", "vi_VN").format(expense.amount)}'),
                 const Spacer(),
                 Row(
                   children: [
