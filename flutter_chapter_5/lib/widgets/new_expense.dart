@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import "package:flutter_chapter_5/models/expense.dart";
 
@@ -31,6 +34,43 @@ class _NewExpenseState extends State<NewExpense> {
     });
   } //Future -> async/await
 
+  void _showDialog() {
+    if (Platform.isIOS) {
+      showCupertinoDialog(
+          context: context,
+          builder: (ctx) => CupertinoAlertDialog(
+                title: const Text('Invalid input'),
+                content: const Text(
+                    'Please make sure a valid title, amount, date and category was entered.'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(ctx);
+                    },
+                    child: const Text('Okay'),
+                  ),
+                ],
+              ));
+    } else {
+      showDialog(
+        context: context,
+        builder: (ctx) => AlertDialog(
+          title: const Text('Invalid input'),
+          content: const Text(
+              'Please make sure a valid title, amount, date and category was entered.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(ctx);
+              },
+              child: const Text('Okay'),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+
   void _sumbitNewExpenseData() {
     final enterdAmount = double.tryParse(_amountController
         .text); //tryParse("hello")->null, tryParse("1.12")->1.12
@@ -39,22 +79,7 @@ class _NewExpenseState extends State<NewExpense> {
         amountIsInvalid ||
         _selectedDate == null) {
       //show error message
-      showDialog(
-        context: context,
-        builder: (ctx) => AlertDialog(
-          title: const Text("Đầu vao không hợp lệ"),
-          content: const Text(
-              "Vui lòng đảm bảo rằng bạn đã nhập tiêu đề, số tiền, ngày và danh mục hợp lệ"),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(ctx);
-              },
-              child: const Text("Okay"),
-            ),
-          ],
-        ),
-      );
+      _showDialog();
       return;
     }
     widget.onAddExpense(
