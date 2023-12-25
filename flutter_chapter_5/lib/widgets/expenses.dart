@@ -105,6 +105,8 @@ class _ExpenState extends State<Expenses> {
                 Expanded(
                   child: Chart(expenses: _registeredExpenses),
                 ),
+
+                ///tìm  hiểu về size constrain, expanded
                 Expanded(
                   child: mainContent,
                 )
