@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chapter_5/widgets/chart/chart.dart';
 import 'package:flutter_chapter_5/widgets/expeses_list/expenses_list.dart';
 import 'package:flutter_chapter_5/models/expense.dart';
 import 'package:flutter_chapter_5/widgets/new_expense.dart';
@@ -35,6 +36,7 @@ class _ExpenState extends State<Expenses> {
   ];
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
       isScrollControlled: true,
       context: context,
       builder: (ctx) => NewExpense(onAddExpense: _addExpense),
@@ -69,6 +71,9 @@ class _ExpenState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.height);
+    print(MediaQuery.of(context).size.width);
+    final width = MediaQuery.of(context).size.width;
     Widget mainContent = const Center(
       child: Text("Hiện tại không có thông tin nào.Bắt đầu thêm thông tin"),
     );
@@ -87,14 +92,27 @@ class _ExpenState extends State<Expenses> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          const Text("Ứng Dụng của tôi"),
-          Expanded(
-            child: mainContent,
-          )
-        ],
-      ),
+      body: width < 600
+          ? Column(
+              children: [
+                Chart(expenses: _registeredExpenses),
+                Expanded(
+                  child: mainContent,
+                )
+              ],
+            )
+          : Row(
+              children: [
+                Expanded(
+                  child: Chart(expenses: _registeredExpenses),
+                ),
+
+                ///tìm  hiểu về size constrain, expanded
+                Expanded(
+                  child: mainContent,
+                )
+              ],
+            ),
     );
   }
 }
